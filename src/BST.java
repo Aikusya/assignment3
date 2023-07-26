@@ -12,7 +12,14 @@ public class BST<K extends Comparable<K>, V> {
         }
 
         public void put(K key, V value){
+            root = put(root, key, value);
+        }
 
+        private Node put(Node node, K key, V value){
+            if(node == null){
+                size++;
+                return new Node(key, value);
+            }
         }
 
         public V get(K key){
