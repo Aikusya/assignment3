@@ -1,3 +1,5 @@
+package com.company;
+
 import java.util.AbstractMap;
 import java.util.ArrayList;
 import java.util.List;
@@ -6,15 +8,21 @@ import java.util.Map;
 public class BST<K extends Comparable<K>, V> {
     private Node root;
     private int size;
-    private class Node{
+    private class Node {
         private K key;
         private V value;
         private Node left, right;
 
-        public Node(K key, V value){
+        public Node(K key, V value) {
             this.key = key;
             this.value = value;
         }
+    }
+
+        BST(){
+            this.size = 0;
+        }
+
 
         public void put(K key, V value){
             root = put(root, key, value);
@@ -107,8 +115,7 @@ public class BST<K extends Comparable<K>, V> {
             }
         }
 
-        public int getSize(int size){
+        public int getSize(int size) {
             return size;
         }
-    }
 }
