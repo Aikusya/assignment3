@@ -20,6 +20,16 @@ public class BST<K extends Comparable<K>, V> {
                 size++;
                 return new Node(key, value);
             }
+
+            int cmp = key.compareTo(node.key);
+            if(cmp < 0){
+                node.left = put(node.left, key, value);
+            } else if (cmp > 0) {
+                node.right = put(node.right, key, value);
+            } else {
+                node.value = value;
+            }
+            return node;
         }
 
         public V get(K key){
