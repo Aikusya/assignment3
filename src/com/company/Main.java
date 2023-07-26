@@ -11,6 +11,7 @@ public class Main {
         bst.put(10, "ten");
         bst.put(9, "nine0");
         bst.put(12, "twelve");
+        bst.put(13, "thirteen");
 
         System.out.println(bst.consist(11));
 
