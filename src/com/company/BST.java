@@ -116,4 +116,28 @@ public class BST<K extends Comparable<K>, V> implements Iterable<Map.Entry<K, V>
             inorderTraversal(node.right, entries);
         }
     }
+
+    public boolean consist(K key){
+        if(consist(root, key) != null){
+            return true;
+        } else {
+            return false;
+        }
+    }
+
+    public Node<K, V> consist(Node<K, V> node, K key){
+        if(node == null){
+            return null;
+        }
+
+        int cmp = key.compareTo(node.key);
+        if(cmp == 0){
+            return node;
+        } else if (cmp < 0) {
+            return consist(node.left, key);
+        } else if (cmp > 0) {
+            return consist(node.right, key);
+        }
+        return null;
+    }
 }
