@@ -33,7 +33,13 @@ public class BST<K extends Comparable<K>, V> {
         }
 
         public V get(K key){
+            return get(root, key);
+        }
 
+        private V get(Node node, K key){
+            if(node == null){
+                return null;
+            }
         }
 
         public void delete(K key){
