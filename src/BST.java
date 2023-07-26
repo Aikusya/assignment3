@@ -1,5 +1,8 @@
+import java.util.AbstractMap;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Map;
+
 public class BST<K extends Comparable<K>, V> {
     private Node root;
     private int size;
@@ -90,17 +93,17 @@ public class BST<K extends Comparable<K>, V> {
             return node;
         }
 
-        public Iterable<K> iterator() {
-            List<K> keys = new ArrayList<>();
-            inorderTraversal(root, keys);
-            return keys;
+        public Iterable<Map.Entry<K, V>> iterator() {
+            List<Map.Entry<K, V>> entries = new ArrayList<>();
+            inorderTraversal(root, entries);
+            return entries;
         }
 
-        private void inorderTraversal(Node node, List<K> keys) {
+        private void inorderTraversal(Node node, List<Map.Entry<K, V>> entries) {
             if (node != null) {
-                inorderTraversal(node.left, keys);
-                keys.add(node.key);
-                inorderTraversal(node.right, keys);
+                inorderTraversal(node.left, entries);
+                entries.add(new AbstractMap.SimpleEntry<>(node.key, node.value));
+                inorderTraversal(node.right, entries);
             }
         }
 
