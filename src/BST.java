@@ -59,6 +59,33 @@ public class BST<K extends Comparable<K>, V> {
             if(node == null){
                 return null;
             }
+
+            int cmp = key.compareTo(node.key);
+            if(cmp < 0){
+                return delete(node.left, key);
+            } else if (cmp > 0) {
+                return delete(node.right, key);
+            } else {
+                size--;
+                if(node.left == null){
+                    return node.right;
+                } else if (node.right == null) {
+                    return node.left;
+                } else {
+                    Node minRight = findMin(node.right);
+                    node.key = minRight.key;
+                    node.value = minRight.value;;
+                    node.right = delete(node.right, minRight.key);
+                }
+            }
+            return node;
+        }
+
+        private Node findMin(Node node){
+            while (node.left != null){
+                node = node.left;
+            }
+            return node;
         }
 
         public Iterable<K> iterator(){
