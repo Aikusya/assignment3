@@ -9,6 +9,11 @@ public class Main {
         bst.put(5, "five");
         bst.put(3, "three");
         bst.put(7, "seven");
+        bst.put(10, "ten");
+
+        //System.out.println(bst.get(3));
+        //bst.delete(5);
+
 
 
         for (Map.Entry<Integer, String> entry : bst.iterator()) {
